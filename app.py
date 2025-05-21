@@ -1,22 +1,21 @@
 from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__)  # ¡No necesita template_folder si usas la estructura estándar!
 
-# Ruta principal FLASK (diferente a GitHub Pages)
-@app.route('/app')
-def home():
-    return render_template('index.html')  # Carga el index.html completo desde templates/
+@app.route('/')
+def index():
+    return render_template('index.html')  # Flask automáticamente buscará en templates/
 
-# Rutas secundarias (ajustadas para coexistir con GitHub Pages)
-@app.route('/app/estudiantes')
+# Rutas para los otros templates
+@app.route('/estudiantes')
 def estudiantes():
     return render_template('estudiantes.html')
 
-@app.route('/app/catedraticos')  # Corregido para coincidir con tu HTML
-def catedraticos():
-    return render_template('catedraticos.html')  # Asegúrate de renombrar docentes.html -> catedraticos.html
+@app.route('/docentes')
+def docentes():
+    return render_template('docentes.html')
 
-@app.route('/app/planes')
+@app.route('/planes')
 def planes():
     return render_template('planes.html')
 
