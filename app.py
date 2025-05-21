@@ -15,9 +15,9 @@ def estudiantes():
 def docentes():
     return render_template('docentes.html')
 
-@app.route('/planes')
-def planes():
-    return render_template('planes.html')
+@app.route('/administracion')
+def administracion():
+    return render_template('administracion.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

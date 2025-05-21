@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interfaz Principal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='inicio.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema De Gestión Académica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/estudiante.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Interfaz Gráfica Aquí</h1>
-    <!-- Aquí empieza tu diseño -->
+    <div class="academic-container">
+        <a href="{{ url_for('index') }}" class="back-button">
+            <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+
+        <div class="hero-section">
+            <div class="university-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>UNIVERSIDAD UMG</span>
+            </div>
+        </div>
+
+        <div class="notebook-container">
+            <div class="notebook" id="notebook">
+                <!-- Portada (Login) -->
+                <div class="page front-page">
+                    <div class="feature-icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </div>
+                    <h2>Inicio de Sesión</h2>
+                    <form class="auth-form">
+                        <input type="email" placeholder="Correo institucional" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit" class="auth-button">Ingresar</button>
+                    </form>
+                    <button class="flip-button" onclick="flipNotebook()">
+                        ¿Nuevo estudiante? Regístrate aquí
+                    </button>
+                </div>
+
+                <!-- Contraportada (Registro) -->
+                <div class="page back-page">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2>Registro Estudiantil</h2>
+                    <form class="auth-form">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Crear contraseña" required>
+                        <input type="password" placeholder="Confirmar contraseña" required>
+                        <button type="submit" class="auth-button">Registrarse</button>
+                    </form>
+                    <button class="flip-button" onclick="flipNotebook()">
+                        ¿Ya tienes cuenta? Inicia sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function flipNotebook() {
+            const notebook = document.getElementById('notebook');
+            notebook.classList.toggle('flipped');
+        }
+    </script>
 </body>
 </html>
