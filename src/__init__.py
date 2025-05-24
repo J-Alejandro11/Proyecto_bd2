@@ -1,0 +1,1 @@
+from .urls import configure_routes
